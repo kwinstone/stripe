@@ -5,7 +5,7 @@ import { theme } from '@/lib/theme';
 import '@mantine/core/styles.css';
 
 export const metadata: Metadata = {
-  title: 'Mantine V7 Nextjs 14 with TSS',
+  title: 'Payment service',
   description:
     'This repo can be used as a template for using Mantine V7 in a Nextjs 14 project with TSS for styling.',
 };
@@ -16,9 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <ColorSchemeScript defaultColorScheme='dark' />
       </head>
-      <body>
+      <body style={{ backgroundColor: 'var(--mantine-color-gray-3)'}}>
         <NextAppDirEmotionCacheProvider options={{ key: 'css' }}>
-          <MantineProvider defaultColorScheme='dark' theme={theme}>
+          <MantineProvider>
             {children}
           </MantineProvider>
         </NextAppDirEmotionCacheProvider>
