@@ -12,11 +12,11 @@ export const CheckoutForm = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    if (!stripe  || !elements) return;
+    if (!stripe || !elements) return;
 
     setIsProcessing(true)
 
-    const {error} = await stripe.confirmPayment({
+    const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         return_url: `${window.location.origin}/completion`
@@ -31,13 +31,13 @@ export const CheckoutForm = () => {
   }
 
   return (
-   <Paper m={50} shadow={'xl'} w={700} p={24} radius={'md'}>
-     <Box>
-       <PaymentElement />
-       <Button mt={20} w={150}>
-         Submit
-       </Button>
-     </Box>
-   </Paper>
+    <Paper m={50} shadow={'xl'} w={700} p={24} radius={'md'}>
+      <Box>
+        <PaymentElement />
+        <Button mt={20} w={150} onClick={handleSubmit}>
+          Submit
+        </Button>
+      </Box>
+    </Paper>
   )
 }
